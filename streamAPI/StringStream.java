@@ -1,26 +1,23 @@
-package practice;
+package Practice1;
 
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class StringStream {
-	public static void main(String[] args) {
-		String s = " My  name is  Prosenjit.  I am from West Bengal ";
-		System.out.println("Count total letters without space: ");
-		System.out.println(s.chars().filter(c -> c != ' ').count());
-		System.out.println();
-		System.out.println("Count total letters with space: ");
-		System.out.println(s.chars().count());
-		System.out.println();
-		System.out.println("Remove the extra spaces: " + s.trim().replaceAll("\\s+", " "));
-		System.out.println();
-		System.out.println("Remove the spcl character: " + s.chars().filter(c -> Character.isLetter(c) || c == ' ')
-				.mapToObj(c -> String.valueOf((char) c)).collect(Collectors.joining()));
-		System.out.println("Convert all to lower case: " + s.toLowerCase());
-		System.out.println("Convert all to lower case: " + s.toLowerCase());
-		s.trim().replaceAll("\\s+", " ");
-		System.out.println("Convert all first letter to upper case: " + Arrays.stream(s.trim().split("\\s+"))
-				.map(w -> w.substring(0, 1).toUpperCase() + w.substring(1).toLowerCase())
+public class StringJava {
+
+	public static void main(String[] args) throws FileNotFoundException {
+
+		String s = "Hi This  is prosenjit. I #am working in@  Bangalore";
+		String result = s.replaceAll("[^a-zA-Z0-9.\\s]", "").trim().replaceAll("\\s+", " ");
+		System.out.println(result);
+		System.out.println(
+				Arrays.stream(result.split(" ")).collect(Collectors.groupingBy(s1 -> s1, Collectors.counting()))
+						.entrySet().stream().collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue())));
+		System.out.println(Arrays.stream(result.split(" "))
+				.map(e -> e.substring(0, 1).toUpperCase() + e.substring(1).toLowerCase())
 				.collect(Collectors.joining(" ")));
+
 	}
+
 }
