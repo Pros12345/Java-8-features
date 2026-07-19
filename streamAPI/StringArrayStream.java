@@ -22,6 +22,8 @@ public class StringArrayStream {
 		System.out.println("Convert all first letter to Upper other lower: ");
 		Arrays.stream(s).map(q -> q.substring(0, 1).toUpperCase() + q.substring(1).toLowerCase()).toList()
 				.forEach(System.out::println);
+		Map<Integer, List<String>> lst = Arrays.stream(s).collect(Collectors.groupingBy(String::length));
+		System.out.println(lst);
 	}
 
 }
