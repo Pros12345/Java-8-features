@@ -37,6 +37,11 @@ public class NumbersStream {
 				"Count Each Number: " + lst.stream().collect(Collectors.groupingBy(n -> n, Collectors.counting())));
 		System.out.println("Get 2nd Largest: " + lst.stream().sorted(Comparator.reverseOrder()).toList().get(1));
 
+		Set<Integer> checked = new HashSet<>();
+		System.out.println(Arrays.stream(arr).boxed().filter(s -> !checked.add(s)).collect(Collectors.toSet()));
+
+		System.out.println(Arrays.toString(IntStream.range(0, arr.length).map(i -> arr[arr.length - 1 - i]).toArray()));
+
 	}
 
 }
