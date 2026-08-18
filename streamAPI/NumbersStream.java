@@ -40,8 +40,8 @@ public class NumbersStream {
 		Set<Integer> checked = new HashSet<>();
 		System.out.println(Arrays.stream(arr).boxed().filter(s -> !checked.add(s)).collect(Collectors.toSet()));
 
-		System.out.println(Arrays.toString(IntStream.range(0, arr.length).map(i -> arr[arr.length - 1 - i]).toArray()));
-
+		// Reverse a List
+		lst.reversed().forEach(System.out::println);
 	}
 
 }
