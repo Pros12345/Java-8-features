@@ -42,6 +42,9 @@ public class NumbersStream {
 
 		// Reverse a List
 		lst.reversed().forEach(System.out::println);
+
+		// merge two list
+		Stream.concat(lst.stream(), lst1.stream()).toList().forEach(System.out::println);
 	}
 
 }
